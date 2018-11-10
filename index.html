@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/09/first-title/">first title</a>
+      <a class="article-title" href="/2018/11/09/first-title/">Hexo + Github 个人网站</a>
     </h1>
   
 
@@ -84,7 +84,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h5><table>
+        <h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>每个github的账户有一个个人网站的配额，只要部署好，就可以直接访问。Hexo是一个静态的博客框架，方便安装。Github + hexo 可以非常搭建自己的博客，操作也十分简便。</p>
+<p>操作分别如下（以window 10为例）：</p>
+<ol>
+<li>获得自己的github账号</li>
+<li>创建个人仓库</li>
+<li>安装git </li>
+<li>配置个人信息</li>
+<li>安装Node.js</li>
+</ol>
+<h2 id="2-创建个人仓库"><a href="#2-创建个人仓库" class="headerlink" title="2 创建个人仓库"></a>2 创建个人仓库</h2><p>注意创建的仓库的名称应该为：XXX.github.io .其中XXX为你的Github账号名称。</p>
+<h2 id="3-安装Git"><a href="#3-安装Git" class="headerlink" title="3.安装Git"></a>3.安装Git</h2><p>直接进入<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">网站</a>进行下载安装。<br>安装成功后，打开命令行，输入<code>git version</code>查看是否安装成功</p>
+<h2 id="4-配置个人信息"><a href="#4-配置个人信息" class="headerlink" title="4.配置个人信息"></a>4.配置个人信息</h2><p>在随意一个文件夹，右击，打开<code>Git Bash Here</code>,输入以下代码，进行配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure></p>
+<p>接着，生成ssh秘钥文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure></p>
+<p>然后按照默认信息，直接三个回车。</p>
+<p>之后找到生成的<code>.ssh</code>的文件夹中的<code>id_rsa.pub</code>密钥文件，打开，将内容全部复制。</p>
+<p>打开<a href="https://github.com/settings/keys" target="_blank" rel="noopener">Github的密钥界面</a>，新建密钥，点击<code>New SSH key</code>,title任意填写，将刚才复制的<code>id_rsa.pub</code>粘贴进去，点击<code>Add SSH key</code>.</p>
+<p>在<code>Git bsah</code>中输入<code>ssh git@github.com</code>来检测公钥设置是否成功。</p>
+<p>注意，以上的密钥设置主要是为了每次上传代码的方便，不需要频繁输入密码进行检验。自己电脑存放私钥，github存公钥，可以进行匹配。</p>
+<h2 id="5-安装Node-js"><a href="#5-安装Node-js" class="headerlink" title="5. 安装Node.js"></a>5. 安装Node.js</h2><p>hexo基于node.js，前往<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js安装地址</a>进行下载安装。安装后，输入<code>node -v</code>检查node.js是否安装成功，输入<code>npm -v</code>查看npm是否安装成功。至此，准备工作已经妥当。</p>
+<h2 id="6-安装Hexo"><a href="#6-安装Hexo" class="headerlink" title="6. 安装Hexo"></a>6. 安装Hexo</h2><p>在你认为合适的地方创建一个文件夹，进入该文件夹。右击进入<code>Git Bash</code>,在命令行中依次输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure></p>
+<p>这时你会看到一堆白字，这时输入<code>hexo -v</code>查看是否安装成功。</p>
+<h2 id="7-初始化hexo"><a href="#7-初始化hexo" class="headerlink" title="7. 初始化hexo"></a>7. 初始化hexo</h2><p>接着上面步骤，输入<code>hexo init</code>，<code>npm install</code>，npm会帮你自动安装所需要的组件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></p>
+<p>其中g是为了生成文件，s是服务器开启。接着按照提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure></p>
+<p>打开localhost:4000,就可以看到初始博客了。</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h5><table>
 <thead>
 <tr>
 <th>编号</th>
@@ -106,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/09/first-title/" data-id="cjoay2cc80000jcudoaz38ueq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/09/first-title/" data-id="cjob27azp0000zwudi4hgyxsi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -151,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/09/hello-world/" data-id="cjoay2ccf0001jcudpjpdrqd4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/11/09/hello-world/" data-id="cjob27azv0001zwud2afvi833" class="article-share-link">Share</a>
       
       
     </footer>
@@ -192,7 +216,7 @@
       <ul>
         
           <li>
-            <a href="/2018/11/09/first-title/">first title</a>
+            <a href="/2018/11/09/first-title/">Hexo + Github 个人网站</a>
           </li>
         
           <li>
