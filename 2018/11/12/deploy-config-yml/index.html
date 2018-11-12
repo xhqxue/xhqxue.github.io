@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Crane&#39;s home">
 <meta property="og:description" content="writing部分layout部分hexo new [layout] &amp;lt;title&amp;gt;hexo new post &amp;quot;test&amp;quot; layout（布局）有三种    layout 文件所在文件夹     post source/_posts   page source   draft source/_drafts    draft是草稿，可以通过hexo publish">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-12T11:44:03.674Z">
+<meta property="og:updated_time" content="2018-11-12T12:19:54.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deploy _config.yml">
 <meta name="twitter:description" content="writing部分layout部分hexo new [layout] &amp;lt;title&amp;gt;hexo new post &amp;quot;test&amp;quot; layout（布局）有三种    layout 文件所在文件夹     post source/_posts   page source   draft source/_drafts    draft是草稿，可以通过hexo publish">
@@ -327,9 +327,82 @@
 <p>来将草稿转移到posts文件夹中。</p>
 <p><code>post</code>是文件，可以展现在网站中。</p>
 <h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>新建文章时,hexo会根据scaffolds（模板）文件夹内的相应文件来进行构建。例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new photo &quot;test&quot;</span><br></pre></td></tr></table></figure></p>
-<p>hexo会扫描scaffolds中是否有名为<code>photo.md</code>的模板。模板中可以用到的变量有：<br>|变量|描述|<br>|—-|—-|<br>|layout|布局|<br>|title| 标题|<br>|date| 日期|<br>可以建立如下内容，之后的文件头会沿用这个<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">layout: &#123;&#123;10&#125;&#125;</span><br><span class="line">tag:</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p>hexo会扫描scaffolds中是否有名为<code>photo.md</code>的模板。模板中可以用到的变量有：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">layout</td>
+<td style="text-align:center">布局</td>
+</tr>
+<tr>
+<td style="text-align:center">title</td>
+<td style="text-align:center">标题</td>
+</tr>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">日期</td>
+</tr>
+</tbody>
+</table>
+<p>可以建立如下内容，之后的文件头会沿用这个<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">layout: &#123;&#123;10&#125;&#125;</span><br><span class="line">tag:</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
 <h1 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h1><p>Front-matter 是文件最上方以 — 分隔的区域，用于指定个别文件的变量，举例来说：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World</span><br><span class="line">date: 2013/7/13 20:46:25</span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
-<p>以下是预先定义的参数，您可在模板中使用这些参数值并加以利用。<br>|参数|描述|默认值|<br>|—|—-|—–|<br>|layout|    布局|<br>|title|    标题<br>|date    |建立日期        |文件建立日期<br>|updated|    更新日期    |文件更新日期<br>|comments|    开启文章的评论功能    |true<br>|tags    |标签（不适用于分页）<br>|categories|    分类（不适用于分页）<br>|permalink    |覆盖文章网址    </p>
+<p>以下是预先定义的参数，您可在模板中使用这些参数值并加以利用。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>layout</td>
+<td>布局</td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td>标题</td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>建立日期</td>
+<td>文件建立日期</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>更新日期</td>
+<td>文件更新日期</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>开启文章的评论功能</td>
+<td>true</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>标签（不适用于分页）</td>
+<td></td>
+</tr>
+<tr>
+<td>categories</td>
+<td>分类（不适用于分页）</td>
+<td></td>
+</tr>
+<tr>
+<td>permalink</td>
+<td>覆盖文章网址</td>
+</tr>
+</tbody>
+</table>
 <h2 id="标签和分类"><a href="#标签和分类" class="headerlink" title="标签和分类"></a>标签和分类</h2><p>其中tags和categories看起来类似，但是tags没有顺序和层次，而categories有着顺序和层次。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">- Diary</span><br><span class="line">tags:</span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br></pre></td></tr></table></figure>
 
